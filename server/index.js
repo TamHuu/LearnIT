@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const mongoose = require("mongoose");
-
+const authRouter = require("./routes/auth");
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://christopherle0902:Tamle2603@cluster0.nlvmf5l.mongodb.net/Databases?retryWrites=true&w=majority`,
+      `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.nlvmf5l.mongodb.net/Databases?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -17,8 +18,9 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+app.use(express.json());
 connectDB();
-
+app.use("/api/auth", authRouter);
 app.get("/", (req, res) => res.send("Hello world"));
 const PORT = 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
