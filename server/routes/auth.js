@@ -59,12 +59,14 @@ router.post("/login", async (req, res) => {
     if (!user)
       return res
         .status(400)
-        .json({ success: false, message: "Incorrect user" });
+        .json({ success: false, message: "Incorrect username" });
 
-    // Username found
+    // password found
     const passwordValid = await argon2.verify(user.password, password);
-    if (!passwordValid) return;
-    res.status(400).json({ success: false, message: "Incorrect password" });
+    if (!passwordValid)
+      return res
+        .status(400)
+        .json({ success: false, message: "Incorrect password" });
     // All good
     const accessToken = jwt.sign(
       { userID: user._id },
@@ -80,4 +82,5 @@ router.post("/login", async (req, res) => {
     res.status(500).json("Internal server error");
   }
 });
+
 module.exports = router;
