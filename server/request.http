@@ -3,30 +3,32 @@ POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "Jim",
-    "password": "Jim"
+  "username": "jim22",
+  "password": "jim22"
 }
 
 ###
+
 POST http://localhost:5000/api/auth/login
-
 Content-Type: application/json
 
 {
-     "username": "le huu tam 234 567 89",
-    "password": "Tamleasdsadacxs"
+  "username": "jim22",
+  "password": "jim22"
 }
 
 ###
+
 POST http://localhost:5000/api/posts
-
 Content-Type: application/json
-
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyOGVjMjliZjNjNzgxMmNkOGEzZTUiLCJpYXQiOjE2ODgzNzQ5Nzh9.KhKezcxNiQqYEKl2N6FUaYUr3tt708GbYV20E3Yhji0
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyYmUyMTNjMDI0Mzk5N2Y4MWIwOGEiLCJpYXQiOjE2ODgzODg1MDN9.LDXI_Kd0AMg6nHzUMBsiVngfvcNsdaTqvUol3B8jyt0
 
 {
-"title":"SHOPPPPasdsadE",
-"description":"hahasdsasaddsasasdahaha",
-"status":"LEARNEsdsadsaD",
-"url":"FB.cdsadsadsaom",
+  "title": "React",
+  "description": "React",
+  "url": "react.com",
+  "status": "TO LEARN"
 }
+
+
+
