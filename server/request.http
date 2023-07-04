@@ -1,34 +1,53 @@
-###
+### Register
 POST http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-  "username": "jim22",
-  "password": "jim22"
+  "username": "Huu tiiii",
+  "password": "Huu tiiii"
 }
 
-###
+### Login
 
 POST http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-  "username": "jim22",
-  "password": "jim22"
+  "username": "Huu tiiii",
+  "password": "Huu tiiii"
 }
 
-###
+### create
 
 POST http://localhost:5000/api/posts
 Content-Type: application/json
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyYmUyMTNjMDI0Mzk5N2Y4MWIwOGEiLCJpYXQiOjE2ODgzODg1MDN9.LDXI_Kd0AMg6nHzUMBsiVngfvcNsdaTqvUol3B8jyt0
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyY2MzODIxOWM0NjU2ZmQ0MDYzMmUiLCJpYXQiOjE2ODgzOTA3MTN9.PGmxtY7hA2gccmtr2u-d1zvWzzip_-LEMyylywxXmFg
 
 {
   "title": "React",
-  "description": "React",
+  "description": "Reactadsadasds",
   "url": "react.com",
   "status": "TO LEARN"
 }
 
+### Get post
 
+GET http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyY2MzODIxOWM0NjU2ZmQ0MDYzMmUiLCJpYXQiOjE2ODgzOTA3MTN9.PGmxtY7hA2gccmtr2u-d1zvWzzip_-LEMyylywxXmFg
 
+### update
+PUT http://localhost:5000/api/posts/64a3bcca9886ce87370fb38a
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyY2MzODIxOWM0NjU2ZmQ0MDYzMmUiLCJpYXQiOjE2ODgzOTA3MTN9.PGmxtY7hA2gccmtr2u-d1zvWzzip_-LEMyylywxXmFg
+
+{
+  "title": "Angular",
+  "description": "Tam ne",
+  "url": "react.com",
+  "status": "TO LEASSASASADSARN"
+}
+### DELETE
+DELETE  http://localhost:5000/api/posts/64a3bcca9886ce87370fb38a
+Content-Type: application/json
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NGEyY2MzODIxOWM0NjU2ZmQ0MDYzMmUiLCJpYXQiOjE2ODgzOTA3MTN9.PGmxtY7hA2gccmtr2u-d1zvWzzip_-LEMyylywxXmFg

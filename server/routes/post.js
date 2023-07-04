@@ -4,27 +4,12 @@ const verifyToken = require("../middleware/auth");
 const jwt = require("jsonwebtoken");
 const Post = require("../models/Post");
 
-// @route GET api/posts
-// @desc Get posts
-// @access Private
-router.get("/", verifyToken, async (req, res) => {
-  try {
-    const posts = await Post.find({ user: req.userId }).populate("user", [
-      "username",
-    ]);
-    res.json({ success: true, posts });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-});
-
 // @route POST api/posts
 // @desc Create post
 // @access Private
 router.post("/", verifyToken, async (req, res) => {
   const { title, description, url, status } = req.body;
-  console.log("Title is required:", req.body);
+
   // Simple validation
   if (!title)
     return res
@@ -49,8 +34,23 @@ router.post("/", verifyToken, async (req, res) => {
   }
 });
 
-// @route PUT api/posts
-// @desc Update post
+// @route Get api/posts
+// @desc Get post
+// @access Private
+router.get("/", verifyToken, async (req, res) => {
+  try {
+    const posts = await Post.find({ user: req.userId }).populate("user", [
+      "username",
+    ]);
+    res.json({ success: true, posts });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+});
+
+// @route update api/posts
+// @desc update post
 // @access Private
 router.put("/:id", verifyToken, async (req, res) => {
   const { title, description, url, status } = req.body;
@@ -65,7 +65,7 @@ router.put("/:id", verifyToken, async (req, res) => {
     let updatedPost = {
       title,
       description: description || "",
-      url: (url.startsWith("https://") ? url : `https://${url}`) || "",
+      url: url.startsWith("https://") ? url : `https://${url}` || "",
       status: status || "TO LEARN",
     };
 
@@ -116,5 +116,4 @@ router.delete("/:id", verifyToken, async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 });
-
 module.exports = router;
