@@ -1,15 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
   });
-  const navigate = useNavigate();
+
   const { username, password } = loginForm;
   const { loginUser } = useContext(AuthContext);
 
